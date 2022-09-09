@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../partials/head.ejs", {titulo: "Perfil de Usuario", cssSheet: "profile"}) %>
+<body>
+    <%- include("../partials/header.ejs") %>
+    <main>
+        <div class="contenedorPerfil">    
+            <a class="iconoCerrar" href="/user/logout">
+                <i class="fas fa-times"></i>
+            </a>
+            <div>
+                <img src="/img/images/users/<%=user.profile_image%>" alt="" class="fotoDePerfil">
+            </div>
+            <div>
+                <h2 class="nombreUsuario"><%=user.first_name%> <%=user.last_name%></h2>
+            </div>
+            <div>
+                <span>Email: <%= user.email %> </span>
+                <br>
+                <span>Nombre de Usuario: <%= user.username %> </span>                
+            </div>
+            <a href="/user/edit/<%= user.id%>" class="boton-modificar">Modificar</a>
+
+        </div>
+    </main>
+    <%- include("../partials/footer.ejs") %>
+
+</div>
+<script src="/js/panel.js"></script>
+</body>
+</html>

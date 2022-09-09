@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("../partials/head.ejs", {titulo: "Pear, sitio de compra y venta de NFT" , cssSheet: "allproducts" }) %>
+
+    <body>
+        <%- include("../partials/header.ejs") %>
+            <main>
+                <!-- Nombre, Precio, Descripcion, archivo (enlace) -->
+                <p class="titulo">Tus Publicaciones</p>
+                <div class="container-principal">
+                    <!-- Mostrar los productos VISITADOS dinámicamente (usando un for o foreach) -->
+                    <% if(products.length != ""){ %>
+                    <% for (let i=0; i < products.length; i++) { %>
+                        <div class="productosDetail">
+                            <a href="/products/<%= products[i].id %>"><img src="/img/images/<%= products[i].image %>" alt="slider"
+                                    class="imagenDetail"></a>
+                            <ul class="info-product">
+                                <li>
+                                    <a href="/products/<%= products[i].id %>">
+                                        <p class="name-nft">
+                                            <%= products[i].name %>
+                                        </p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <% for (let j=0; j < creators.length; j++) {%>
+                                        <% if(products[i].id_creator == creators[j].id){%>
+                                            <p>Creador: <%= creators[j].first_name %>
+                                            </p> <!-- Podriamos crear la vista de autores -->
+                                        <%}%>
+                                    <%}%>                              
+                                    
+                                </li>
+                                <li>
+                                    <p>Valor: <i class="fab fa-ethereum"></i> <%= products[i].price %>
+                                    </p> <!--  Agregar valor en ETH -->
+                                </li>
+                                <% if(locals.isLogged && locals.userLogged.id == products[i].id_creator){ %>
+                                <li class="li-boton">
+                                    <a href="/products/edit/<%= products[i].id%>" class="boton-modificar">Modificar</a>
+                                </li>
+                                <% } %>
+                            </ul>
+                        </div>
+                        <% } %>
+                    <% } else { %> 
+                    <h2>Aún no tienes NFT's publicados</h2>
+                    <% } %>
+                </div>
+            </main>
+            <%- include("../partials/footer.ejs") %>
+    </body>
+
+</html>

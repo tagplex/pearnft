@@ -1,0 +1,96 @@
+<header>
+  <div class="header">
+    <div class="cabecera">
+      <a href="/">
+        <img src="/img/pear1.png" alt="logo_pear" class="logo"></a>
+      <div class="iconosCabecera">
+        <a href="/cart"><i class="fas fa-shopping-cart fa-bars botonCabecera"></i></a>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light menu-principal">
+    <a class="navbar-brand textos-menu" href="/"><i class="fas fa-home"></i> Inicio</a>
+    <button class="navbar-toggler textos-menu" type="button" data-toggle="collapse"
+      data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon textos-menu"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <ul class="nav-bar">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle textos-menu" href="#" id="navbarDropdownMenuLink" role="button"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa-solid fa-photo-film"></i> Productos</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item textos-menu" href="/products/create">Publicar</a>
+              <a class="dropdown-item textos-menu" href="/products">Lista de Productos</a>
+            </div>
+            <li><a href="/api-docs" class="textos-menu"><i class="fa-solid fa-book"></i> API Pear</a></li>
+          </li>
+          <% if(locals.isLogged) { %>
+            <% if(locals.userLogged.id_rol==1) { %>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle textos-menu" href="#" id="navbarDropdownMenuLink" role="button"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Administrador
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <!-- <a class="dropdown-item" href="#">Usuario</a> -->
+                  <a class="dropdown-item" href="/products">Productos</a>
+                  <a class="dropdown-item" href="/categories">Categorias</a>
+                  <a class="dropdown-item" href="/user">Usuarios</a>
+                  <a class="dropdown-item" href="http://54.163.232.228:3000/" target="_blank">Dashboard</a>
+                </div>
+              </li>
+              <% } %>
+                <% } %>
+        </ul>
+      </ul>
+      <ul class="login-bar">
+        <!-- Borrar desde acá -->
+        <form class="navbar-form navbar-left" action="/products/search" method="GET">
+          <div class="input-group">
+            <input type="text" name="search" class="form-control" placeholder="Busqueda">
+            <div class="input-group-btn">
+              <button class="btn btn-light" type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+
+
+
+        <!-- Borrar hasta acá -->
+        <% if(locals.isLogged) { %>
+          <li class="nav-item dropdown">
+            <img src="/img/images/users/<%=locals.userLogged.profile_image%>" class="fotoIcono" alt=""><a
+              class="nav-link dropdown-toggle textos-menu" href="#" id="navbarDropdownMenuLink" role="button"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hola <%= locals.userLogged.first_name%>
+                </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item textos-menu" href="/products/purchase">Mis compras</a>
+              <a class="dropdown-item textos-menu" href="/products/myproducts">Mis Publicaciones</a>
+            </div>
+          </li>
+          <li></i><a href="/user/logout" class="textos-menu">Cerrar sesión</a></li>
+          <% } else { %>
+
+            <li><a href="/user/register" class="textos-menu"><i class="fa fa-id-card"></i> Creá tu cuenta</a></li>
+            <li><a href="/user/login" class="textos-menu"><i class="fas fa-sign-in-alt"></i> Ingresá</a></li>
+
+            <% } %>
+      </ul>
+    </div>
+  </nav>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</header>

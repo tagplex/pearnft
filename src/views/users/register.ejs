@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../partials/head.ejs", {titulo: "Registrarme", cssSheet: "register"}) %>
+<body>
+    <%- include("../partials/header.ejs") %>
+    <main>
+        <a class="iconoCerrar" href="/">
+            <i class="fas fa-times"></i>
+        </a>
+        <div class="iconoFotoPerfil">
+            <i class="fas fa-user-alt"></i>
+        </div>
+        <form action="/user" method="POST" enctype="multipart/form-data" class="register">
+            <div class="formulario">
+                <% if (locals.errors && errors.duplicado) { %>
+                    <p class="errorRegister" id="errorRegister"><%= errors.duplicado.msg%></p>
+                   <% } %>
+                <input type="file" name="img">
+                <% if (locals.errors && errors.img) { %>
+                    <p class="errorRegister" id="errorRegister"><%= errors.img.msg%></p>
+                   <% } %>  
+                <label for="register">
+                    <input type="text" name="first_name" id="first_name" placeholder="   Nombre" class="inputs form-control <%= locals.errors && errors.first_name ? 'is-invalid' : null %>" value="<%= locals.oldData ? oldData.first_name : null %>">
+                </label>  
+                <% if (locals.errors && errors.first_name) { %>
+                    <p class="errorRegister" id="errorRegister"><%= errors.first_name.msg%></p>
+                   <% } %>
+                   <!-- Validacion del front -->
+                   <p class="errorLogin" id="errorFirst"></p>   
+                <label for="register">
+                    <input type="text" name="last_name" id="last_name" placeholder="   Apellido" class="inputs form-control <%= locals.errors && errors.last_name ? 'is-invalid' : null %>" value="<%= locals.oldData ? oldData.last_name : null %>">
+                </label>
+                <% if (locals.errors && errors.last_name) { %>
+                    <p class="errorRegister" id="errorRegister"><%= errors.last_name.msg%></p>
+                   <% } %>
+                   <!-- Validacion del front -->
+                   <p class="errorLogin" id="errorLast"></p>   
+                <label for="register">
+                    <input type="text" name="email" id="email" placeholder="   Email" class="inputs form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>" value="<%= locals.oldData ? oldData.email : null %>">
+                </label>
+                <% if (locals.errors && errors.email) { %>
+                    <p class="errorRegister" id="errorRegister"><%= errors.email.msg%></p>
+                   <% } %>
+                   <!-- Validacion del front -->
+                   <p class="errorLogin" id="errorEmail"></p>   
+                <label for="register">
+                    <input type="text" name="username" id="username" placeholder="   Nombre de Usuario" class="inputs form-control <%= locals.errors && errors.username ? 'is-invalid' : null %>" value="<%= locals.oldData ? oldData.username : null %>">
+                </label>
+                <% if (locals.errors && errors.username) { %>
+                    <p class="errorRegister" id="errorRegister"><%= errors.username.msg%></p>
+                   <% } %>
+                   <!-- Validacion del front -->
+                   <p class="errorLogin" id="errorUsername"></p>   
+                <label for="register">
+                    <input type="password" name="password" id="password" placeholder="   Contraseña" class="inputs form-control <%= locals.errors && errors.password ? 'is-invalid' : null %>">
+                </label>
+                <% if (locals.errors && errors.password) { %>
+                    <p class="errorRegister" id="errorRegister"><%= errors.password.msg%></p>
+                   <% } %>
+                   <!-- Validacion del front -->
+                   <p class="errorLogin" id="errorPassword"></p>    
+                <label for="register">
+                    <input type="password" name="repeatPassword" id="repeatPassword" placeholder="   Repeti tu Contraseña" class="inputs form-control <%= locals.errors && errors.repeatPassword? 'is-invalid' : null %>">
+                </label> 
+                <% if (locals.errors && errors.repeatPassword) { %>
+                    <p class="errorRegister" id="errorRepeatPasword"><%= errors.repeatPassword.msg%></p>
+                   <% } %>
+                   <!-- Validacion del front -->
+                   <p class="errorLogin" id="errorRepeatPassword"></p>   
+            </div>
+            <div class="checksWrap">
+                <label for="register">
+                    <input type="checkbox" name="terminos" id="terminos" class="checks <%= locals.errors && errors.terminos ? 'is-invalid' : null %>">
+                    <a href="">He leido y acepto los terminos y condiciones</a>
+                </label>
+                <% if (locals.errors && errors.terminos) { %>
+                    <p class="errorRegister" id="errorRegister"><%= errors.terminos.msg%></p>
+                   <% } %>
+                   <!-- Validacion del front -->
+                   <p class="errorLogin" id="errorTerminos"></p>   
+            </div>
+            <div class="checksWrap">
+                <label for="register">
+                    <input type="checkbox" name="mayor" id="mayor" class="checks <%= locals.errors && errors.mayor ? 'is-invalid' : null %>">
+                    Soy mayor de 18 años
+                </label>
+                <% if (locals.errors && errors.mayor) { %>
+                    <p class="errorRegister" id="errorRegister"><%= errors.mayor.msg%></p>
+                   <% } %>
+                   <!-- Validacion del front -->
+                   <p class="errorLogin" id="errorMayor"></p>              
+            </div>
+            <div class="checksWrap">
+                <button type="submit" class="botones">Registrarme</button>
+            </div>
+        </form>
+
+
+    </main>
+    <%- include("../partials/footer.ejs") %>
+
+</div>
+
+<script src="/js/register.js"></script>
+</body>
+</html>

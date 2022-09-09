@@ -1,0 +1,245 @@
+:root {
+  --VerdeOscuro: #3AAFB9;
+  --Celeste: #97C8EB;
+  --VerdeClaro: #B9F18C;
+}
+
+body {
+  width: 100%;
+  margin: 0;
+}
+
+/* CSS Mas visitados*/
+.home-general {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.titulos-principal {
+  color: var(--VerdeOscuro);
+  font-weight: bold;
+  font-size: 20px;
+  padding-left: 5%;
+  border-bottom: 1px solid rgb(212, 212, 212);
+  padding: 15px;
+}
+
+.slider-principal {
+  justify-content: center;
+  width: 90%;
+  position: relative;
+
+}
+
+.slider-principal img {
+  border: gray 1px solid;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.name-section {
+  position: absolute;
+  bottom: -3%;
+  right: 20%;
+  color: white;
+  font-weight: bold;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+/* CSS Categorias */
+.categorias-home {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 90%;
+  margin: auto;
+}
+
+.icon-home {
+  width: 40%;
+  text-align: center;
+  padding: 10px 5px 0px 5px;
+  /* border: 1px rgb(173, 173, 173) solid; */
+  margin-bottom: 5px;
+  transition: all 100ms;
+}
+
+.iconos-home {
+  color: var(--VerdeOscuro);
+  font-size: 2.5em;
+  text-align: center;
+  transition: all 300ms;
+}
+
+.nombre-categoria {
+  padding-top: 10px;
+  font-size: 1em;
+  color: var(--VerdeOscuro);
+  margin: 0;
+}
+
+/* CSS Partners */
+.partners-home {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 90%;
+  margin: auto;
+}
+
+.partner-home img {
+  width: 90%;
+  padding: 5%;
+  border: gray 1px solid;
+  border-radius: 10px;
+}
+
+/* CSS Crear y vender NFT */
+.opciones-home {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 90%;
+  margin: auto;
+}
+
+.pasos-home {
+  text-align: center;
+  padding: 10px;
+}
+
+.subtitulo-pasos {
+  font-weight: 300;
+  font-size: 20px;
+  color: var(--VerdeOscuro);
+}
+
+.texto-pasos {
+  font-weight: 300;
+  color: gray;
+}
+
+.iconos {
+  color: var(--VerdeOscuro);
+  font-size: 40px;
+}
+
+@media (min-width: 430px) and (max-width: 800px) {
+  .slider-principal {
+    width: 30%;
+  }
+
+  .home-general {
+    width: 70%;
+    margin: auto;
+  }
+
+  .categorias-home {
+    margin: auto;
+  }
+
+  .partners-home {
+    width: 50%;
+    margin: auto;
+  }
+
+  .opciones-home {
+    width: 75%;
+  }
+
+  .pasos-home {
+    width: 80%;
+  }
+  .icon-home{
+    width: 25%;
+  }
+}
+
+@media (min-width: 801px) {
+  .slider-principal {
+    width: 30%;
+    transition: all 300ms;
+    
+  }
+  .slider-principal img:hover{
+    box-shadow: 0px 0px 10px gray;
+  }
+
+  .main {
+    width: 80%;
+    margin: auto;
+  }
+
+  .name-section {
+    bottom: 5%;
+  }
+
+  .titulos-principal {
+    font-size: 2em;
+  }
+
+  .categorias-home {
+    margin: auto;
+    flex-wrap: nowrap;
+  }
+
+  .partners-home {
+    flex-wrap: nowrap;
+    width: 50%;
+    margin: auto;
+  }
+  .partners-home img {
+    border: none;
+  }
+
+  .opciones-home {
+    width: 50%;
+  }
+
+  .iconos {
+    font-size: 2em;
+  }
+
+  .opciones-home {
+    width: 100%;
+  }
+
+  .pasos-home {
+    width: 20%;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  .pasos-home:hover{
+    box-shadow: 0px 0px 10px var(--VerdeOscuro); 
+  }
+
+  .subtitulo-pasos {
+    font-size: 1em;
+  }
+  
+  .icon-home{
+    font-size: 1.5em;
+  }
+
+  .icon-home:hover{
+    
+    font-size: 2em;
+  } 
+
+  .icon-home:hover i{    
+    color: #B9F18C;
+  } 
+  .icon-home:hover p{    
+    color: #B9F18C;
+  } 
+
+  .iconos{
+    font-size: 3em;
+  }
+
+  .subtitulo-pasos{
+    font-size: 1.5em;
+  }
+  
+}

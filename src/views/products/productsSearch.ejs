@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("../partials/head.ejs", {titulo: "Pear, sitio de compra y venta de NFT" , cssSheet: "allproducts" }) %>
+
+    <body>
+        <%- include("../partials/header.ejs") %>
+            <main>
+                <!-- Nombre, Precio, Descripcion, archivo (enlace) -->
+                <p class="titulo">Listado de NFT buscados</p>
+                <div class="container-principal">
+                <% if(results.length != 0) { %>
+                    <!-- Mostrar los productos VISITADOS dinámicamente (usando un for o foreach) -->
+                    <% for (let i=0; i <results.length; i++) { %>
+                        <div class="productosDetail">
+                            <a href="/products/<%= results[i].id %>"><img src="/img/images/<%= results[i].image %>" alt="slider"
+                                    class="imagenDetail"></a>
+                            <ul class="info-product">
+                                <li>
+                                    <a href="/products/<%= results[i].id %>">
+                                        <p class="name-nft">
+                                            <%= results[i].name %>
+                                        </p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <% for (let j=0; j < creators.length; j++) {%>
+                                        <% if(results[i].id_creator == creators[j].id){%>
+                                            <p>Creador: <%= creators[j].first_name %>
+                                            </p> <!-- Podriamos crear la vista de autores -->
+                                        <%}%>
+                                    <%}%>                              
+                                    
+                                </li>
+                                <li>
+                                    <p>Valor: <i class="fab fa-ethereum"></i> <%= results[i].price %>
+                                    </p> <!--  Agregar valor en ETH -->
+                                </li>
+                                <% if(locals.isLogged) { %>
+                                <li class="li-boton">
+                                    <a href="/products/edit/<%= results[i].id%>" class="boton-modificar">Modificar</a>
+                                </li>
+                                <% } %>
+                            </ul>
+                        </div>
+                        <% } %>
+                    <% } else { %>
+                        <h3 class="titulo-error">¡Ups! No hay coincidencias con tu búsqueda.</h3>
+                        <% } %>
+                </div>
+            </main>
+            <%- include("../partials/footer.ejs") %>
+    </body>
+
+</html>

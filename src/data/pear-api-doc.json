@@ -1,0 +1,290 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Esta es la documentacion de la API creada por el grupo 7 de la comision 14 del curso de Programacion Web Full Stack para el proyecto final.\nEl proyecto fue un ecommerce de NFT. \nPueden visualizar nuestro proyecto en www.pearnft.shop\n",
+    "version": "1.0.0",
+    "title": "Pear NFT",
+    "contact": {
+      "email": "grupo7@gmail.com"
+    }
+  },
+  "host": "pearnft.shop",
+  "basePath": "/api",
+  "tags": [
+    {
+      "name": "user",
+      "description": "Usuarios registrados en nuestra plataforma"
+    },
+    {
+      "name": "category",
+      "description": "Accede a todas las categorias de nuestros NFT"
+    },
+    {
+      "name": "NFT",
+      "description": "Todos los NFT que tenemos registrados en el portal"
+    }
+  ],
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/nft/": {
+      "get": {
+        "tags": [
+          "NFT"
+        ],
+        "summary": "Listar todos los NFT en base de datos",
+        "operationId": "listAllNft",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Operacion exitosa!",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/NFT"
+              }
+            }
+          },
+          "400": {
+            "description": "Solicitud invalida"
+          }
+        }
+      }
+    },
+    "/nft/last": {
+      "get": {
+        "tags": [
+          "NFT"
+        ],
+        "summary": "Obtiene el detalle de el ultimo NFT registrado",
+        "description": "Con este endpoint obtendras el detalle del ultimo NFT agregado a nuestra base de datos",
+        "operationId": "findLastNFT",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Operacion exitosa!",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/NFT"
+              }
+            }
+          },
+          "400": {
+            "description": "Solicitud incorrecta"
+          }
+        }
+      }
+    },
+    "/nft/{id}": {
+      "get": {
+        "tags": [
+          "NFT"
+        ],
+        "summary": "Encontrar un NFT por su ID",
+        "description": "Este endpoint devolvera un NFT determinado segun su ID",
+        "operationId": "getNftById",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID del NFT a retornar",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/NFT"
+            }
+          },
+          "400": {
+            "description": "El ID proporcionado no es correcto"
+          },
+          "404": {
+            "description": "NFT no encontrado"
+          }
+        }
+      }
+    },
+    "/user/": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Listar todos los usuarios",
+        "description": "Obtendremos un array de objetos con todos los usuarios en la base de datos",
+        "operationId": "listUsers",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [],
+        "responses": {
+          "default": {
+            "description": "Operacion exitosa"
+          }
+        }
+      }
+    },
+    "/user/{id}": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Obtener el detalle de un usuario por ID",
+        "operationId": "getUserById",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "El ID del usuario que quieras obtener",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Operacion exitosa",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "400": {
+            "description": "El ID es invalido"
+          },
+          "404": {
+            "description": "Usuario no encontrado"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "NFT": {
+      "type": "object",
+      "required": [
+        "id",
+        "image",
+        "price",
+        "url",
+        "urlNft"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string",
+          "example": "Love Ape 36"
+        },
+        "image": {
+          "type": "string",
+          "example": "loveape36.jpg"
+        },
+        "url": {
+          "type": "string"
+        },
+        "cid": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number"
+        },
+        "description": {
+          "type": "string"
+        },
+        "category": {
+          "$ref": "#/definitions/Category"
+        },
+        "urlNft": {
+          "type": "string"
+        }
+      },
+      "xml": {
+        "name": "NFT"
+      }
+    },
+    "Category": {
+      "type": "object",
+      "required": [
+        "id",
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "xml": {
+        "name": "Category"
+      }
+    },
+    "User": {
+      "type": "object",
+      "required": [
+        "email",
+        "id",
+        "username"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "first_Name": {
+          "type": "string"
+        },
+        "last_Name": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "profile_image": {
+          "type": "string"
+        }
+      },
+      "xml": {
+        "name": "User"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}

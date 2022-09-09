@@ -1,0 +1,108 @@
+:root{
+    --VerdeOscuro:#3AAFB9;
+    --Celeste: #97C8EB;
+    --VerdeClaro: #B9F18C;
+}
+
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
+footer{
+    background-color: #3AAFB9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.secciones{
+    padding: 15px;  
+}
+
+.secciones i{   
+    margin: 10px;
+    font-size: 30px;
+    color: white;  
+}
+
+.titulo{
+    color: white;
+    font-size: 25px;
+    font-weight: 300;
+}
+
+.secciones form{
+    text-align: center;
+}
+
+.secciones input{
+    border-radius: 5px;
+    border: none;
+    height: 25px;
+    width: auto;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.botonSuscribirme{
+    background-color: #B9F18C;
+    color:#3AAFB9;
+    font-size: 15px;
+    height: 25px;
+    border-radius: 5px;
+    border: none;
+    font-weight: 400;
+}
+
+.logoFooter{
+    width: 10%;
+    height: 10%;
+}
+
+.derechos{
+    font-size: 12px;
+    color: gainsboro;
+    margin: 10px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.corazon{
+    text-align: center;
+    color: white;
+}
+
+@media (min-width: 430px) and (max-width: 800px) {
+    
+}
+
+@media(min-width: 801px){
+    .titulo{
+        font-size: 40px;
+    }
+
+    .secciones input{
+        width: 70%;
+        height: 50px;
+    }
+    .botonSuscribirme{
+        height: 50px;
+        font-weight: bold;
+    }
+    .botonSuscribirme:hover{
+        background-color: wheat;
+        
+    }
+
+    .secciones i{
+        font-size: 50px;
+        margin: 30px;
+    }
+    .logoFooter{
+        width: 5%;
+        height: 5%;
+    }
+}
+
+

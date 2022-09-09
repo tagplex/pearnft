@@ -1,0 +1,29 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<%- include("../partials/head.ejs", {titulo: "Pear, sitio de compra y venta de NFT" , cssSheet: "allcategory" }) %>
+
+    <body>
+        <%- include("../partials/header.ejs") %>
+            <main>
+                <!-- Nombre, Precio, Descripcion, archivo (enlace) -->
+                <p class="titulo">Listado de categorias</p>
+                <div class="container-principal">
+                    <% for (let i=0; i < categories.length; i++) { %>
+                        <ul class="info-product">
+                            <li>
+                                <p class="categoria"><%= categories[i].name %></p>
+                                <!-- <a href="/categories/<%= categories[i].id %>"><%= categories[i].name %></a> -->
+                            </p>
+                            </li>
+                        </ul>
+                    <% } %> 
+                </div>
+                <li class="li-boton">
+                    <a href="/categories/create" class="boton-modificar">Crear categoria</a>
+                </li>
+            </main>
+            <%- include("../partials/footer.ejs") %>
+    </body>
+
+</html>

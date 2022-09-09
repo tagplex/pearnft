@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include("../partials/head.ejs", {titulo: "Editar producto", cssSheet: "create"}) %>
+
+<body>
+    <%- include("../partials/header.ejs") %>
+    <main>
+        <!-- Nombre, Precio, Descripcion, archivo (enlace) -->
+        <div class="container-principal">
+            <p>Edita tu NFT</p>
+            <form action="/products/edit/<%= product.id %>?_method=PATCH" enctype="multipart/form-data" method="POST" class="formulario">
+                <div class="fieldForm">
+                    <label class="etiquetas" id="nombreProductoedit">Nombre de tu producto(*)</label>
+                    <input 
+                        type="text" 
+                        name="name"
+                        id="nombrenftedit"
+
+                        class="<%= locals.errors && errors.name ? "is-invalid" : "textField" %>"
+                        value="<%= product.name %>" required>
+                        <!-- label error campo name -->
+                   
+                        <% if (locals.errors && errors.name) { %>
+                            <div class="msgerror">
+                                <%= errors.name.msg %>                                 
+                            </div>                         
+                        <% } %>
+                </div>
+                <div class="fieldForm">
+                    <label class="etiquetas">Categoria(*)</label>
+                    <select 
+                        class="<%= locals.errors && errors.category ? "is-invalid" : "textField" %>"
+                        name="category">
+
+                        <% for (let i = 0; i < category.length; i++){ %>
+                            <% if (category[i].id == product.id_category){ %>
+            
+                                <option value="<%=category[i].id%>" selected>
+                                    <%=category[i].name%>
+                
+                                </option>
+            
+            
+                            <% } else {%>
+                                <option value="<%=category[i].id%>" >
+                                    <%=category[i].name%>
+                
+                                </option>
+            
+            
+                                <% } %>
+                            
+                        <% } %>
+
+                        <!-- <option value="">Selecciona una catergoria</option>
+                        <option value="Art">Arte</option>
+                        <option value="Cinema">Cine</option>
+                        <option value="Sports">Deportes</option>
+                        <option value="Photography">Fotografia</option>
+                        <option value="Music">Musica</option>
+                        <option value="Videogames">Videojuegos</option> -->
+                    </select>
+                    <!-- label error campo category -->
+                   
+                    <% if (locals.errors && errors.category) { %>
+                        <div class="msgerror">
+                            <%= errors.category.msg %>                                 
+                        </div>                         
+                    <% } %>
+                </div>
+                <div class="fieldForm">
+                    <label class="etiquetas" id="descriptionProductoedit">Descripcion(*)</label>
+                    <input 
+                        type="text" 
+                        class="<%= locals.errors && errors.description ? "is-invalid" : "textField" %>" 
+                        name="description"
+                        id="descripcionedit"  
+                        
+                    value="<%= product.description %>">
+                     <!-- label error campo description -->
+                   
+                     <% if (locals.errors && errors.description) { %>
+                        <div class="msgerror">
+                            <%= errors.description.msg %>                                 
+                        </div>                         
+                    <% } %>
+                </div>
+                <div class="fieldForm">
+                    <a class="etiquetas" href="https://ipfs.io/" target="_blank">Url Ipfs (*)</a>
+                    <input 
+                        type="text" 
+                        name="url" 
+                        class="<%= locals.errors && errors.url ? "is-invalid" : "textField" %>"
+                        
+                        value="<%= product.url %>"> 
+                        <!-- label error campo URL -->
+                   
+                        <% if (locals.errors && errors.url) { %>
+                            <div class="msgerror">
+                                <%= errors.url.msg %>                                 
+                            </div>                         
+                        <% } %>
+                </div>
+                <div class="fieldForm">
+                    <label class="etiquetas">o subé tu imagen</label>
+                    <input type="file" name="img" id="fileedit" class="<%= locals.errors && errors.img ? "is-invalid" : "textField" %>">
+                    <% if (locals.errors && errors.img) { %>
+                        <div class="msgerror">
+                           <%= errors.img.msg %>  
+                        </div>
+                     
+                    <% } %>
+                    <div><img class="imagendetalle" src="/img/images/<%= product.image %>" alt="slider"></div>
+                </div>
+                <div class="fieldForm">
+                    <label class="etiquetas">Precio(*) ETH</label>
+                    <input 
+                        type="text" 
+                        name="priceeth" 
+                        class="<%= locals.errors && errors.priceeth ? "is-invalid" : "textField" %>"
+                        value="<%= product.price %>">
+                        <!-- label error campo ETH -->
+                   
+                        <% if (locals.errors && errors.priceeth) { %>
+                            <div class="msgerror">
+                                <%= errors.priceeth.msg %>                                 
+                            </div>                         
+                        <% } %>
+                </div>
+                <div class="botonCrear">
+                    <button type="submit" class="botones">Guardar</button>
+                </div>
+            </form>
+            <% if(product.state == 1) { %>
+            <form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST" class="formEliminar">
+                <button type="submit" class="botones_eliminar">Deshabilitar</button>
+            </form>
+            <% } else { %>
+                <form action="/products/active/<%= product.id %>?_method=PATCH" method="POST" class="formEliminar">
+                    <button type="submit" class="botones_habilitar">Habilitar</button>
+                </form>
+            <% } %>
+        </div>
+    </main>
+    <%- include("../partials/footer.ejs") %>
+    <script type="text/javascript" src="/js/productsformsedit.js"></script>
+</body>
+
+</html>

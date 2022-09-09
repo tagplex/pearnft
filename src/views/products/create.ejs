@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../partials/head.ejs", {titulo: "Pear, sitio de compra y venta de NFT", cssSheet: "create"}) %>
+<body>
+    <%- include("../partials/header.ejs") %>
+    
+    <main>
+        <!-- Nombre, Precio, Descripcion, archivo (enlace) -->
+        <div class="container-principal">
+            <p>Publica tu NFT</p>
+            
+            <form action="/products" method="POST" enctype="multipart/form-data" class="formulario">
+                <div class="fieldForm">
+                    <label class="etiquetas" id="nombreProducto">Nombre de tu producto(*)</label>
+                    <input 
+                        type="text" 
+                        name="name" 
+                        id="nombrenft" 
+                        
+                        class="<%= locals.errors && errors.name ? "is-invalid" : "textField" %>"
+                        value="<%= locals.oldData ? oldData.name : null %>" >
+                  
+
+                    <!-- label error campo name -->
+                   
+                        <% if (locals.errors && errors.name) { %>
+                            <div class="msgerror">
+                                <%= errors.name.msg %>                                 
+                            </div>                         
+                        <% } %>
+                    
+                </div>
+                <!-- Modificacion del selector de categoria realizando la lectura desde la db -->
+                <div class="fieldForm">
+                    <label class="etiquetas">Categoria(*)</label>
+                    <select 
+                        class="<%= locals.errors && errors.category ? "is-invalid" : "textField" %>"
+                        name="category" 
+                        id="categoria">
+                        <option value="">Elige una categoria</option>
+                        <% for (let i = 0; i < categories.length; i++){ %>
+                            <option value="<%=categories[i].id%>"
+                                <%= locals.oldData && ( categories[i].name === oldData.category) ? 'selected' : null %> >
+                                <%=categories[i].name%>
+            
+                            </option>
+                        <% } %>                       
+                    </select>
+                    <!-- label error campo category -->
+                   
+                    <% if (locals.errors && errors.category) { %>
+                        <div class="msgerror">
+                            <%= errors.category.msg %>                                 
+                        </div>                         
+                    <% } %>
+                </div>
+                <div class="fieldForm">
+                    <label class="etiquetas" id="descriptionProducto">Descripcion(*)</label>
+                    <input 
+                        type="text" 
+                        name="description" 
+                        id="descripcion" 
+                        class="<%= locals.errors && errors.description ? "is-invalid" : "textField" %>"
+                        
+                        value="<%= locals.oldData ? oldData.description : null %>">
+                    <!-- label error campo description -->
+                   
+                    <% if (locals.errors && errors.description) { %>
+                        <div class="msgerror">
+                            <%= errors.description.msg %>                                 
+                        </div>                         
+                    <% } %>
+                </div>
+                <div class="fieldForm">
+                    <a class="etiquetas" href="https://ipfs.io/" target="_blank">Url Ipfs (*)</a>
+                    <input 
+                        type="text" 
+                        name="url" 
+                        id="url" 
+                        class="<%= locals.errors && errors.url ? "is-invalid" : "textField" %>"
+                        
+                        value="<%= locals.oldData ? oldData.url : null %>">
+                        <!-- label error campo URL -->
+                   
+                        <% if (locals.errors && errors.url) { %>
+                            <div class="msgerror">
+                                <%= errors.url.msg %>                                 
+                            </div>                         
+                        <% } %>
+                </div>
+                <div class="fieldForm">
+                    <label class="etiquetas">o subé tu imagen</label>
+                    <input type="file" name="img" id="file" class="<%= locals.errors && errors.img ? "is-invalid" : "textField" %>">
+                    <% if (locals.errors && errors.img) { %>
+                        <div class="msgerror">
+                           <%= errors.img.msg %>  
+                        </div>
+                     
+                    <% } %>
+                    <div id="imagePreview"></div>
+                </div>
+                <div class="fieldForm">
+                    <label class="etiquetas">Precio(*) ETH</label>
+                    <input 
+                        type="text" 
+                        name="priceeth" 
+                        id="priceeth" 
+                        class="<%= locals.errors && errors.priceeth ? "is-invalid" : "textField" %>"
+                       
+                        value="<%= locals.oldData ? oldData.priceeth : null %>">
+                        <!-- label error campo ETH -->
+                   
+                        <% if (locals.errors && errors.priceeth) { %>
+                            <div class="msgerror">
+                                <%= errors.priceeth.msg %>                                 
+                            </div>                         
+                        <% } %>
+                </div>
+                <div class="botonCrear">
+                    <button type="reset" class="botones">Borrar</button>
+                    <button type="submit" class="botones">Publicar</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <%- include("../partials/footer.ejs") %>
+    <script type="text/javascript" src="/js/productsforms.js"></script>
+</body>
+
+</html>

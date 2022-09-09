@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/head.ejs", {titulo: "Pear, sitio de compra y venta de NFT", cssSheet: "index"}) %>
+<body>
+    
+    <%- include("./partials/header.ejs") %>
+    <main>
+        <section class="main">
+            <p class="titulos-principal">Publicaciones recientes</p>
+            <div class="home-general">
+                <% for (let i=0; i < products.length; i++) { %>
+                <div class="slider-principal">
+                    <a href="/products/<%= products[i].id %>"><img src="/img/images/<%= products[i].image %>" alt="slider"></a>
+                    <p class="name-section"><%= products[i].name %></p>
+                </div>                
+                <% } %>
+            </div>
+            <p class="titulos-principal">Categorias NFT</p>
+            <div class="categorias-home">
+                <div class="icon-home">
+                    <i class="fas fa-paint-brush iconos-home"></i>
+                    <p class="nombre-categoria">Arte</p>
+                </div>
+                <div class="icon-home">
+                    <i class="fas fa-music iconos-home"></i>
+                    <p class="nombre-categoria">Musica</p>
+                </div>
+                <div class="icon-home">
+                    <i class="fas fa-camera iconos-home"></i>
+                    <p class="nombre-categoria">Fotografia</p>
+                </div>
+                <div class="icon-home">
+                    <i class="fas fa-gamepad iconos-home"></i>
+                    <p class="nombre-categoria">Videojuegos</p>
+                </div>
+                <div class="icon-home">
+                    <i class="fas fa-film iconos-home"></i>
+                    <p class="nombre-categoria">Cine</p>
+                </div>
+                <div class="icon-home">
+                    <i class="fas fa-futbol iconos-home"></i>
+                    <p class="nombre-categoria">Deportes</p>
+                </div>
+            </div>
+            <p class="titulos-principal">Partners</p>
+            <div class="partners-home">
+                <div class="partner-home">
+                    <img src="/img/metamask_logo.svg">
+                </div>
+                <div class="partner-home">
+                    <img src="/img/binance_logo.svg">
+                </div>
+            </div>
+            <p class="titulos-principal">Crea y vende tus NFT</p>
+            <div class="opciones-home">
+                <div class="pasos-home">
+                    <i class="fas fa-wallet iconos"></i>
+                    <p class="subtitulo-pasos">Crea tu cuenta</p>
+                    <p class="texto-pasos">Una vez que haya configurado su billetera de elección, conéctela a OpenSea
+                        haciendo clic en el ícono de la billetera en la esquina superior derecha.</p>
+                </div>
+                <div class="pasos-home">
+                    <i class="fas fa-layer-group iconos"></i>
+                    <p class="subtitulo-pasos">Crea una colección</p>
+                    <p class="texto-pasos">Haz clic en Mis colecciones y configura tu colección. Agregue enlaces
+                        sociales, una descripción, imágenes de perfil y banner.</p>
+                </div>
+                <div class="pasos-home">
+                    <i class="fas fa-icons iconos"></i>
+                    <p class="subtitulo-pasos">Agrega tus NFT</p>
+                    <p class="texto-pasos">Cargue su trabajo (imagen, video, audio o arte 3D), agregue un título y una
+                        descripción.</p>
+                </div>
+                <div class="pasos-home">
+                    <i class="fas fa-tags iconos"></i>
+                    <p class="subtitulo-pasos">Lista tus productos</p>
+                    <p class="texto-pasos">Elige el valor de tus NFT. Usted elige cómo desea vender sus NFT, ¡y nosotros
+                        le ayudamos a venderlos!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <%- include("./partials/footer.ejs") %>
+  
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../partials/head.ejs", {titulo: "Editar Usuario" , cssSheet: "editUser" }) %>
+
+    <body>
+        <%- include("../partials/header.ejs") %>
+            <main>
+                <form action="/user/edit/<%= user.id %>?_method=PATCH" method="POST" class="edit"
+                    enctype="multipart/form-data">
+                    <div class="edit-form">
+                        <a class="iconoCerrar" href="/user/profile">
+                            <i class="fas fa-times"></i>
+                        </a>
+                        <div>
+                            <img src="/img/images/users/<%=user.profile_image%>" alt="" class="fotoDePerfil">
+                        </div>
+                        <input type="file" name="img" class="file-uploader">
+                        <div>
+                            <label>Nombre: </label>
+                            <input type="text" name="first_name" id="first_name" class="form-control"
+                                value="<%= user.first_name %>">
+                            <!-- Validacion back -->
+                            <p class="errorLogin" id="errorNombre"></p>
+                            <label>Apellido: </label>
+                            <input type="text" name="last_name" id="last_name" class="form-control"
+                                value="<%= user.last_name %>">
+                            <!-- Validacion back -->
+                            <p class="errorLogin" id="errorApellido"></p>
+                        </div>
+                        <button type="submit" class="botones">Guardar</button>
+                    </div>
+                </form>
+            </main>
+            <%- include("../partials/footer.ejs") %>
+
+                </div>
+                <!-- <script src="/js/edituser.js"></script> -->
+    </body>
+
+</html>

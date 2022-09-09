@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../partials/head.ejs", {titulo: "Iniciar Sesión", cssSheet: "details"}) %>
+<body>
+    <%- include("../partials/header.ejs") %>
+    <main>
+       <div class="tituloyreturn">
+           <h1 id="product-name"><%= product.name %> </h1>
+           <a href="/products"><i class="fa-solid fa-arrow-left"></i></a>
+       </div>
+       <div class="detallecompra">
+        <img class="imagendetalle" src="/img/images/<%= product.image %>" alt="slider" id="product-img">
+       </div>
+       <div class="valorcompra">
+           <p>Precio:</p>
+           <p id="product-price"><%= product.price %></p><span>ETH</span>
+           <p>($ <%= (product.price / 0.00058).toFixed(2) %>  USD)</p>           
+       </div>
+       <button class="botoncomprar">Comprar Ahora</button>
+       <a href="/cart" id="cart-button"><button class="botoncomprar">Agregar al Carrito</button></a>
+       <div class="datosvendedor">
+           <h2>Vendedor</h2>
+           <div class="ranknft">
+           <p><%= product.creator.first_name %> <%= product.creator.last_name %> </p>
+           <i class="fa-solid fa-star"></i>
+           <p><%= product.creator.username %> </p>
+           <i class="fa-solid fa-images"></i>
+           </div>
+        </div>
+       
+       
+       <div class="descripcionnft">
+           <h2>Descripcion:</h2>
+           <p><%= product.description %> </p>
+       </div>
+       <p id="product-id" class = "idProducto"><%= product.id %></p>
+
+    </main>
+    <%- include("../partials/footer.ejs") %>
+    <script src="/js/addToCart.js"></script>
+</body>
+
+</html>

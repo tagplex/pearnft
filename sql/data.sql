@@ -1,0 +1,27 @@
+insert into roles (id, role) values (1, 'administrador');
+insert into roles (id, role) values (2, 'usuario');
+
+insert into categories (id, name) values (1, 'Arte');
+insert into categories (id, name) values (2, 'Cine');
+insert into categories (id, name) values (3, 'Deportes');
+insert into categories (id, name) values (4, 'Fotografia');
+insert into categories (id, name) values (5, 'Musica');
+insert into categories (id, name) values (6, 'Videojuegos');
+
+insert into users (id, first_name, last_name, username, email, password, profile_image, created_at, updated_at, user_state, id_rol) values (1, 'Kevin', 'Palma','kevin_palma','kevin@gmail.com', '$2a$10$e15xHHf37nP27fCC8pxOLeGXiztCWfQjAzHdwkh/kaRJgmHS8qoUW', '/img/image/users/default_user.jpg', '2022-07-19 14:37:36', null, 1, 2);
+insert into users (id, first_name, last_name, username, email, password, profile_image, created_at, updated_at, user_state, id_rol) values (2, 'Cayetano', 'Fabrisin','cayetano_fabrisin','carlos@gmail.com', '$2a$10$e15xHHf37nP27fCC8pxOLeGXiztCWfQjAzHdwkh/kaRJgmHS8qoUW', '/img/image/users/default_user.jpg', '2022-07-19 14:37:36', null, 1, 2);
+insert into users (id, first_name, last_name, username, email, password, profile_image, created_at, updated_at, user_state, id_rol) values (3, 'Bruno', 'Mascolo','bruno_mascolo','bruno@gmail.com', '$2a$10$e15xHHf37nP27fCC8pxOLeGXiztCWfQjAzHdwkh/kaRJgmHS8qoUW', '/img/image/users/default_user.jpg', '2022-07-19 14:37:36', null, 1, 2);
+insert into users (id, first_name, last_name, username, email, password, profile_image, created_at, updated_at, user_state, id_rol) values (4, 'Juan', 'Ortiz','juan_ortiz','juan@gmail.com', '$2a$10$e15xHHf37nP27fCC8pxOLeGXiztCWfQjAzHdwkh/kaRJgmHS8qoUW','/img/image/users/default_user.jpg', '2022-07-19 14:37:36', null, 1, 2);
+insert into users (id, first_name, last_name, username, email, password, profile_image, created_at, updated_at, user_state, id_rol) values (5, 'Iona', 'Skilbeck','iona_skilbeck','iona@gmail.com', '$2a$10$e15xHHf37nP27fCC8pxOLeGXiztCWfQjAzHdwkh/kaRJgmHS8qoUW','/img/image/users/default_user.jpg', '2022-07-19 14:37:36', null, 1, 2);
+insert into users (id, first_name, last_name, username, email, password, profile_image, created_at, updated_at, user_state, id_rol) values (6, 'Admin', 'Admin','administrador','admin@gmail.com', '$2a$10$e15xHHf37nP27fCC8pxOLeGXiztCWfQjAzHdwkh/kaRJgmHS8qoUW','/img/image/users/default_user.jpg', '2022-07-19 14:37:36', null, 1, 1);
+
+insert into products (id, name, id_category, image, url, cid, price, description, id_creator, state, created_at, updated_at) values (1, 'LOVE APE #1989', 1, '/img/images/nft_1655421160265.jpeg', 'www.coinbase.com', 'nft_1655421160265', 277.55, 'Descripción Breve', 1, 1, '2022-07-19 14:37:36', null);
+insert into products (id, name, id_category, image, url, cid, price, description, id_creator, state, created_at, updated_at) values (2, 'LOVE APE #18351', 2, '/img/images/slider3.jpg', 'www.binance.cl', 'nft_slider3', 299.55, 'Descripción Breve', 2, 1, '2022-07-19 14:37:36', null);
+insert into products (id, name, id_category, image, url, cid, price, description, id_creator, state, created_at, updated_at) values (3, 'ROBOT #191', 3, '/img/images/slider2.jpg', 'www.dh.cl', 'nft_slider2', 305.55, 'Descripción Breve', 3, 1, '2022-07-19 14:37:36', null);
+insert into products (id, name, id_category, image, url, cid, price, description, id_creator, state, created_at, updated_at) values (4, 'Goblintown #4768', 2, '/img/images/slider4.png', 'www.pear.com', 'nft_slider4', 1533.55, 'Descripción Breve', 4, 1, '2022-07-19 14:37:36', null);
+insert into products (id, name, id_category, image, url, cid, price, description, id_creator, state, created_at, updated_at) values (5, 'Ghost #1125', 4, '/img/images/slider5.png', 'www.binance.com.ar', 'nft_slider5', 50.55, 'Descripción Breve', 1, 1, '2022-07-19 14:37:36', null);
+insert into products (id, name, id_category, image, url, cid, price, description, id_creator, state, created_at, updated_at) values (6, 'Kong #3295', 1, '/img/images/slider8.gif', 'www.google.com.co', 'nft_1655339851233', 160.55, 'Descripción Breve', 2, 1, '2022-07-19 14:37:36', null);
+insert into products (id, name, id_category, image, url, cid, price, description, id_creator, state, created_at, updated_at) values (7, 'ONE APE 00', 2, '/img/images/slider7.png', 'www.ipfs.com', 'nft_1655339851417', 2.55, 'Descripción Breve', 3, 1, '2022-07-19 14:37:36', null);
+insert into products (id, name, id_category, image, url, cid, price, description, id_creator, state, created_at, updated_at) values (8, 'TEST FN15', 3, '/img/images/nft_1655421160265.jpeg', 'www.ipfs.com', 'nft_1655339851435', 277.55, 'Descripción Breve', 4, 1, '2022-07-19 14:37:36', null);
+insert into products (id, name, id_category, image, url, cid, price, description, id_creator, state, created_at, updated_at) values (9, 'TEST NFT4', 4, '/img/images/nft_1655339851427.jpeg', 'www.binance.com', 'nft_1655339851427', 277.55, 'Descripción Breve', 5, 1, '2022-07-19 14:37:36', null);
+insert into products (id, name, id_category, image, url, cid, price, description, id_creator, state, created_at, updated_at) values (10, 'NFT PRUEBA', 4, '/img/images/nft_1655339851427.png', 'www.opensea.com', 'nft_1655339851463', 277.55, 'Descripción Breve', 6, 1, '2022-07-19 14:37:36', null);

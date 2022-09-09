@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../partials/head.ejs", {titulo: "Pear, sitio de compra y venta de NFT", cssSheet: "create"}) %>
+<body>
+    <%- include("../partials/header.ejs") %>
+    <main>
+        <!-- Nombre, Precio, Descripcion, archivo (enlace) -->
+        <div class="container-principal">
+            <p>Crea una nueva categoria</p>
+            <form action="/categories" method="POST" enctype="application/x-www-form-urlencoded" class="formulario">
+                <div class="fieldForm">
+                    <label class="etiquetas">Nombre de la categoria(*)</label>
+                    <input type="text" name="name" id="name" placeholder="Categoria" class="textField">
+                </div>
+                <div class="botonCrear">
+                    <button type="reset" class="botones">Borrar</button>
+                    <button type="submit" class="botones">Publicar</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <%- include("../partials/footer.ejs") %>
+</body>
+
+</html>

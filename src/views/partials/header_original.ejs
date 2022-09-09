@@ -1,0 +1,102 @@
+<header>
+  <div class="header">
+    <div class="cabecera">
+      <img src="/img/pear1.png" alt="logo_pear" class="logo">
+      <div class="iconosCabecera">
+        <a href="/cart"><i class="fas fa-shopping-cart fa-bars botonCabecera"></i></a>
+        <i class="fas fa-bars botonCabecera" id="burger"></i>
+      </div>
+    </div>
+  </div>
+  <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light menu-principal">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pricing</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown link
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav> -->
+  <nav class="menu-principal">
+    <ul class="nav-bar">
+      <li><a href="/">Inicio</a></li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false"></a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="/products/create">Publicar</a>
+          <a class="dropdown-item" href="/products">Lista de Productos</a>
+        </div>
+      </li>
+      <% if(locals.isLogged) { %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Administrador
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <!-- <a class="dropdown-item" href="#">Usuario</a> -->
+            <a class="dropdown-item" href="/products">Productos</a>
+            <a class="dropdown-item" href="/categories">Categorias</a>
+            <a class="dropdown-item" href="/user">Usuarios</a>
+          </div>
+        </li>
+        <% } %>
+    </ul>
+    <ul class="login-bar">
+      <!-- Borrar desde acá -->
+      <form class="navbar-form navbar-left" action="/products/search" method="GET">
+        <div class="input-group">
+          <input type="text" name="search" class="form-control" placeholder="Busqueda">
+          <div class="input-group-btn">
+            <button class="btn btn-light" type="submit">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+      <!-- Borrar hasta acá -->
+      <% if(locals.isLogged) { %>
+        <li class="fotoYNombreUsuario"><img src="/img/images/users/<%=locals.userLogged.profile_image%>" class="fotoIcono" alt=""><a
+            href="/user/profile">Hola <%= locals.userLogged.first_name%></a></li>
+        <li></i><a href="/user/logout">Cerrar sesión</a></li>
+        <% } else { %>
+
+          <li><a href="/user/register">Creá tu cuenta <i class="fa fa-id-card"></i></a></li>
+          <li><a href="/user/login">Ingresá <i class="fas fa-sign-in-alt"></i></a></li>
+
+          <% } %>
+    </ul>
+  </nav>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</header>

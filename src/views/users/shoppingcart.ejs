@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../partials/head.ejs", {titulo: "Carrito de compras", cssSheet: "shoppingcart"}) %>
+<body>
+    <%- include("../partials/header.ejs") %>
+    <main>
+        <!-- Titulos -->
+        <div class="contenedorTituloCarrito">
+            <h2 class="tituloCarrito">Carrito de compras</h2>
+        </div>
+        <div class="contenedorTituloSeguridadDatos">
+            <h5 class="tituloSeguridadDatos"><i class="fas fa-lock"></i>  Tus datos personales están seguros</h5>
+        </div>     
+        <!-- sección productos a comprar -->
+        <section class="seccionProductos" id="productos-carrito">                  
+
+        </section>
+        <section id="precioFinal">
+                     
+        </section>  
+        <section id="botones">
+            
+        </section>
+      
+    </main>
+    <%- include("../partials/footer.ejs") %>
+    <script src="/js/cartView.js"></script>
+    
+</body>
+
+</html>

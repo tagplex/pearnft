@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../partials/head.ejs", {titulo: "Iniciar Sesión", cssSheet: "login"}) %>
+<body>
+    <%- include("../partials/header.ejs") %>
+    <main>
+        <a class="iconoCerrar" href="/">
+            <i class="fas fa-times"></i>
+        </a>
+        <div class="iconoFotoPerfil">
+            <i class="fas fa-user-alt"></i>
+        </div>
+        <form action="/user/login" method="POST" class="login">
+            <div class="formulario">
+                <!-- Validacion no encontrando en la db -->
+                <% if (locals.errors && errors.emailpass) { %>
+                    <p class="errorLogin" id="errorLogin"><%= errors.emailpass.msg%></p>
+                   <% } %>  
+                <label for="email">
+                    <input type="text" id="username" name="email" placeholder="Ingresa tu correo electronico" class="textos email form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>" value="<%= locals.oldData ? oldData.email : null %>"> 
+                </label>
+                <!-- Validacion del back -->
+                <% if (locals.errors && errors.email) { %>
+                    <p class="errorLogin" id="errorLogin"><%= errors.email.msg%></p>
+                   <% } %>
+                   <!-- Validacion del front -->
+                   <p class="errorLogin" id="errorCorreo"></p>      
+                <label for="password">
+                    <input type="password" name="password" id="password" placeholder="  Ingresa tu contraseña" class="textos password form-control <% locals.errors && errors.password ? 'is-invalid' : null %> ">
+               </label>
+               <!-- Validacion del back -->
+                <% if (locals.errors && errors.password) { %>
+                    <p class="errorLogin" id="errorLogin"><%= errors.password.msg%></p>
+                   <% } %>
+                   <!-- Validacion del front -->
+                   <p class="errorLogin" id="errorPassword"></p>     
+                <label class="form-check-label remember">
+                    <input type="checkbox" name="recordar">
+                      <p class="recordar">Recordar usuario</p>
+               </label>       
+            </div>
+            <div class="botonIniciarSesion">
+                <button type="submit" class="botones">Iniciar Sesión</button>  
+            </div>
+            <div class="links">
+                <a href="/user/register">¿No tenés cuenta? Registrate</a>
+                <a href="">¿Olvidaste tu contraseña?</a>
+            </div>
+            <div class="metamask">
+                <h4>También podes ingresar con:</h4>
+                <img src="../img/MetaMask.png" alt="logo_metamask">
+            </div>
+        </form>       
+    </main>
+    <%- include("../partials/footer.ejs") %>
+
+</div>
+<script src="/js/login.js"></script>
+
+</body>
+</html>

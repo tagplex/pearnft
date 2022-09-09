@@ -1,0 +1,99 @@
+.fa-arrow-left{
+    color:#3AAFB9;
+    font-size: 20px;
+}
+body {
+    width: 100%;
+    margin: 0;
+  }
+
+.tituloyreturn{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color:#3AAFB9;
+    font-family: roboto, sans-serif;
+}
+.idProducto{
+    display: none;
+}
+
+.detallecompra{
+    margin: auto;
+    width: 350px;
+}
+.imagendetalle{
+    width: 350px;
+    margin: auto;
+}
+
+.valorcompra{
+    display:flex;
+    margin:auto;
+    justify-content: space-around;
+    color:#3AAFB9;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.botoncompra2{
+    padding: 10px 10px 10px 10px;
+    border: #3AAFB9 2px solid;
+    border-radius: 35px;
+    box-shadow: 2px 3px;
+
+}
+
+.botoncomprar{
+    background-color: #3AAFB9;
+    margin: auto;
+    display: block;
+    margin-bottom: 20px;
+    padding: 15px 35px 15px 35px;
+    color: white;
+    border-radius: 10px;
+    border-color: white;
+
+}
+
+.datosvendedor{
+    border-top: 1px solid rgb(212, 212, 212);
+    border-bottom: 1px solid rgb(212, 212, 212);
+    display: block;
+    margin: auto;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.ranknft{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.descripcionnft{
+    border-bottom: 1px solid rgb(212, 212, 212);
+    display: block;
+    margin: auto;
+    padding-top: 20px;
+}
+
+@media (min-width: 430px){
+    .tituloyreturn{
+    max-width: 415px;
+    margin: auto;
+    }
+
+    .datosvendedor{
+    max-width: 400px;
+}
+.descripcionnft{
+    max-width: 400px;
+
+
+}
+.valorcompra{
+    max-width: 400px;
+}
+
+}
